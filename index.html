@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Smiles</title>
+        <meta name="description" content="Smiles" />
+        <meta name="author" content="Joseph" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                outline: 0;
+                font-size: 100%;
+                vertical-align: baseline;
+                background: transparent;
+            }
+            #image-container {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #image-main {
+                width: 100vw;
+                height: auto;
+            }
+            #bg-picker {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="image-container">
+            <img src="" id="image-main" data-index="0" />
+        </div>
+        <input type="color" id="bg-picker" name="bg-picker" value="#ffffff">
+        <script>
+            var imgs = [
+                'https://www.yourdentistryguide.com/wp-content/uploads/2017/11/smile-anatomy-min-925x425.jpg',
+                'https://www.dentistamherstny.com/wp-content/uploads/2017/10/ThinkstockPhotos-480246305.jpg',
+                'https://exquisite-smile.com/wp-content/uploads/2017/02/unnamed.jpg',
+            ];
+
+            window.onload = function() {
+                var imgMain = document.getElementById('image-main');
+                var imgContainer = document.getElementById('image-container');
+                var index = parseInt(imgMain.getAttribute('data-index'), 10);
+                imgMain.src = imgs[index];
+                imgMain.onclick = function() {
+                    index += 1;
+                    if (index >= imgs.length) { index = 0; }
+                    imgMain.src = imgs[index];
+                };
+            };
+        </script>
+    </body>
+</html>
